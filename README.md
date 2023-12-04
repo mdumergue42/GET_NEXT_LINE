@@ -1,0 +1,1 @@
+# NEW_GET_NEXT_LINE

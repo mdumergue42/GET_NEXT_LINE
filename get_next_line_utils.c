@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:51:43 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/04 14:53:21 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/07 13:12:13 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	j;
 	char	*str;
 
-	if (!s1 || !s2)
+	if (!s2)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	str = malloc(sizeof(char) * (len + 1));
@@ -70,30 +70,4 @@ void	*ft_calloc(size_t ct, size_t size)
 		i++;
 	}
 	return (str);
-}
-char	*ft_strcpy(char *line, char *buffer)
-{
-	int	i;
-
-	i = 0;
-	while (buffer[i] != '\0')
-	{
-		line[i] = buffer[i];
-		i++;
-	}
-	line[i] = '\0';
-	return (line);
-}
-
-char	*ft_strdup(char *src)
-{
-	int		size;
-	char	*dest;
-
-	size = ft_strlen(src);
-	dest = malloc(sizeof(char) * (size + 1));
-	if (dest == NULL)
-		return (NULL);
-	ft_strcpy(dest, src);
-	return (dest);
 }

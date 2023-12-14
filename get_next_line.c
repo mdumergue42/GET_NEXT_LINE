@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madumerg <madumerg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:51:12 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/07 13:10:43 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:14:51 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,24 @@ char	ft_end_of_line(char *line, char *buffer)
 	return (0);
 }
 
+char	*ft_verif(char **buffer, char *line)
+{
+	free(*buffer);
+	*buffer = NULL;
+	if (line[0] != '\0')
+		return (line);
+	free(line);
+	return (NULL);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
 	char		*line;
 	int			read_nb;
 
+	if (fd < 0 || fd > 1023 || BUFFER_SIZE <= 0)
+		return (NULL);
 	line = ft_calloc(1, 1);
 	if (!buffer)
 		buffer = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
@@ -53,14 +65,7 @@ char	*get_next_line(int fd)
 			return (line);
 		read_nb = read(fd, buffer, BUFFER_SIZE);
 		if (read_nb < 1)
-		{
-			free(buffer);
-			buffer = NULL;
-			if (line[0] != '\0')
-				return (line);
-			free(line);
-			return (NULL);
-		}
+			return (ft_verif(&buffer, line));
 		buffer[read_nb] = '\0';
 	}
 	return (NULL);

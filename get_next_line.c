@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:51:12 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/14 13:14:51 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:56:25 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ char	*get_next_line(int fd)
 	while (buffer && line)
 	{
 		line = ft_strjoin(line, buffer);
+		if (!line)
+			return (NULL);
 		if (ft_end_of_line(line, buffer) == 1)
 			return (line);
 		read_nb = read(fd, buffer, BUFFER_SIZE);

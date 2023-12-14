@@ -59,6 +59,8 @@ char	*get_next_line(int fd)
 	while (buffer[fd] && line)
 	{
 		line = ft_strjoin(line, buffer[fd]);
+		if (!line)
+			return (NULL);
 		if (ft_end_of_line(line, buffer[fd]) == 1)
 			return (line);
 		read_nb = read(fd, buffer[fd], BUFFER_SIZE);

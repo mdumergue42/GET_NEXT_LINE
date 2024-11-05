@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:51:12 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/14 14:56:25 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/11/05 20:35:48 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,3 +72,22 @@ char	*get_next_line(int fd)
 	}
 	return (NULL);
 }
+
+/*#include <stdio.h>
+#include <fcntl.h>
+
+int    main(void)
+{
+    int fd = open("test.txt", O_RDONLY);
+    char *str = get_next_line(fd);
+
+    while (str != NULL)
+    {
+        printf("%s", str);
+        free(str);
+        str = get_next_line(fd);
+    }
+	if (fd > 0)
+		close(fd);
+    return (0);
+}*/

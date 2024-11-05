@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:51:12 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/14 13:15:31 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/11/05 20:36:10 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,33 @@ char	*get_next_line(int fd)
 	}
 	return (NULL);
 }
+
+/*#include <fcntl.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*line;
+
+	int fd1 = open("test.txt", O_RDONLY);
+	int fd2 = open("test2.txt", O_RDONLY);
+	int fd3 = open("test3.txt", O_RDONLY);
+	int i = 0;
+	while (i < 10)
+	{
+		line = get_next_line(fd1);
+		printf("%s", line);
+		free(line);
+		line = get_next_line(fd2);
+		printf("%s", line);
+		free(line);
+		line = get_next_line(fd3);
+		printf("%s", line);
+		free(line);
+		i++;
+	}
+	close(fd1);
+	close(fd2);
+	close(fd3);
+	return (0);
+}*/
